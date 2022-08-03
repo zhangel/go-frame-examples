@@ -20,16 +20,16 @@ func (d *DemoService) GetInfo(ctx context.Context,req *api.GetInfo_Request) (*ap
 }
 
 func (d *DemoService) CreateInfo(ctx context.Context, req *api.CreateInfo_Request)  (*api.Response, error) {
-	resp:=&api.Response{}
+	resp:=&api.Response{Msg:"OK",Code: 0}
 	return resp,status.Error(codes.OK,"ok")
 }
 
 func (d *DemoService) UpdateInfo(ctx context.Context, req *api.UpdateInfo_Request)  (*api.Response, error) {
-	resp:=&api.Response{}
+	resp:=&api.Response{Msg:"OK",Code: 0}
 	return resp,status.Error(codes.OK,"ok")
 }
 
 func (d *DemoService) DeleteInfo(ctx context.Context, req *api.DeleteInfo_Request) (*api.Response, error) {
-	resp:=&api.Response{}
+	resp:=&api.Response{Msg:"OK",Code: 0}
 	return resp,status.Error(codes.OK,"ok")
 }

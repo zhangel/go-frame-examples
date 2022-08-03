@@ -67,25 +67,23 @@ message GetInfo {
 
 message CreateInfo {
   message Request {
-    //name
-    string  name  =   2;
-    //page num
-    int32   page  =   3;
-    //limit
-    int32   limit =   4;
+      //name
+      string  name  =   2;
+      //age
+      int32   age   =   3;
+      //address
+      string  address = 4;
   }
 }
 
 message UpdateInfo  {
   message Request {
-    //primary key
-    int64   id    =   1;
     //name
     string  name  =   2;
-    //page num
-    int32   page  =   3;
-    //limit
-    int32   limit =   4;
+    //age
+    int32   age   =   3;
+    //address
+    string  address = 4;
   }
 }
 
