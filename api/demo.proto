@@ -1,0 +1,97 @@
+syntax="proto3";
+option go_package="api";
+package api;
+import "google/api/annotations.proto";
+
+message Response {
+  string  msg   =   1;
+  int32   code  =   2;
+}
+
+service Info {
+
+  rpc GetInfo(GetInfo.Request) returns (GetInfo.Response) {
+      option  (google.api.http) = {
+          get : "/info"
+      };
+  }
+  rpc CreateInfo(CreateInfo.Request) returns (Response) {
+      option  (google.api.http)  =  {
+          post : "/info/create"
+          body : "*"
+      };
+  }
+  rpc UpdateInfo(UpdateInfo.Request) returns (Response) {
+      option  (google.api.http)  =  {
+          post  :  "/info/update"
+          body  :  "*"
+      };
+  }
+  rpc DeleteInfo(DeleteInfo.Request) returns (Response) {
+      option  (google.api.http)   =  {
+        post  :  "/info/delete"
+        body  :  "*"
+      };
+  }
+
+}
+
+
+message UserInfo {
+  //primary key
+  int64   id    =   1;
+  //name
+  string  name  =   2;
+  //age
+  int32   age   =   3;
+  //address
+  string  address = 4;
+}
+
+message GetInfo {
+  message Request {
+    //primary key
+    int64   id    =   1;
+    //name
+    string  name  =   2;
+    //page num
+    int32   page  =   3;
+    //limit
+    int32   limit =   4;
+  }
+  message Response {
+    //list data
+    repeated  UserInfo  list  =   1;
+  }
+}
+
+message CreateInfo {
+  message Request {
+    //name
+    string  name  =   2;
+    //page num
+    int32   page  =   3;
+    //limit
+    int32   limit =   4;
+  }
+}
+
+message UpdateInfo  {
+  message Request {
+    //primary key
+    int64   id    =   1;
+    //name
+    string  name  =   2;
+    //page num
+    int32   page  =   3;
+    //limit
+    int32   limit =   4;
+  }
+}
+
+message DeleteInfo  {
+  message Request {
+    //primary key
+    int64   id    =   1;
+  }
+}
